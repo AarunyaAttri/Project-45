@@ -44,7 +44,7 @@ function setup() {
   ground = createSprite(700, 575, 1500, 70);
   ground.addImage(groundImage);
   ground.scale = 0.4;
-  ground.visible = false;
+  ground.visible = true;
   
   playButton = createSprite(500, 400, 20, 20);
   playButton.addImage(playButtonImage);
@@ -57,8 +57,9 @@ function setup() {
   spiderMan = createSprite(200, 540, 10, 10);
   spiderMan.addAnimation("hero", spiderManAnimation);
   spiderMan.scale = 2;
-  spiderMan.setCollider("circle", 0, 0, 45.5);
+  spiderMan.setCollider("circle", 0, 0, 25.5);
   spiderMan.visible = false;
+  spiderMan.debug=true;
   
   invisibleGround = createSprite(300, 550, 1500, 10);
   invisibleGround.visible = false;
@@ -134,7 +135,7 @@ function draw() {
     
     if (spiderMan.isTouching(coinGroup)) {
       coinGroup.destroyEach();
-      score += 1;
+      score += 10;
     }
   }
   
@@ -190,16 +191,15 @@ function draw() {
   spiderMan.velocityY = spiderMan.velocityY + 0.5;  
   
   drawSprites();
-  textSize(15)
+  textSize(25)
   stroke("yellow");
   fill("black");
-  text("SCORE: " + score, 10, 580);
+  text("SCORE: " + score, 10, 80);
 }
 
 function story() {
   playButton.visible = true;
   controlButton.visible = true;
-  backGround.visible = false;
 }
 
 function control() {
@@ -252,7 +252,7 @@ function spawn() {
     if (rand === 1) {
       carnage = createSprite(1100, 0, 20, 20);
         carnage.addAnimation("boss1", carnageAnimation);
-        carnage.setCollider("circle", 0, 0,45);
+        carnage.setCollider("circle", 0, 0,25);
         carnage.lifetime = 300;
         carnage.velocityX  = -14;
         carnage.velocityY = Math.round(random(5, 8));
@@ -262,7 +262,7 @@ function spawn() {
     if (rand === 2) {
       electro = createSprite(1100, 0, 20, 20);
         electro.addAnimation("boss2", electroAnimation);
-        electro.setCollider("circle", 0, 0,45);
+        electro.setCollider("circle", 0, 0,25);
         electro.lifetime = 200;
         electro.velocityX = -14;
         electro.velocityY = Math.round(random(5, 8));
@@ -276,14 +276,14 @@ function spawn() {
       lizard.addAnimation("boss3", lizardAnimation);
       lizard.velocityX = -14;
       lizard.velocityY = Math.round(random(5, 9));
-      lizard.setCollider("circle", 0,0, 45);
+      lizard.setCollider("circle", 0,0, 25);
       lizard.lifetime = 300;
       lizardGroup.add(lizard);
     }
     if (rand === 5) {
       venom = createSprite(1100, 0, 20, 20);
       venom.addAnimation("boss4", venomAnimation);
-      venom.setCollider("circle", 0,0, 45);
+      venom.setCollider("circle", 0,0, 25);
       venom.lifetime = 300;
       venom.velocityX = -14;
       venom.velocityY = Math.round(random(5, 8)); 
