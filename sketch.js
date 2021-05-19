@@ -119,6 +119,8 @@ function draw() {
     spawn();
     spawnObstacles();
     
+     backGround.velocityX = -(4+3* score/100);
+    
     if (backGround.x < 0) {
       backGround.x = backGround.width / 2;
     }
@@ -221,7 +223,7 @@ function control() {
 function spawnObstacles() {
   if (frameCount % 130 === 0) {
     rock = createSprite(1100, invisibleGround.y - 30, 20, 20);
-    rock.velocityX = -7;
+    rock.velocityX = -(6+score/100);
     rock.addImage(rockImage);
     rock.lifetime = 300;
     rockGroup.add(rock);
@@ -254,7 +256,7 @@ function spawn() {
         carnage.addAnimation("boss1", carnageAnimation);
         carnage.setCollider("circle", 0, 0,25);
         carnage.lifetime = 300;
-        carnage.velocityX  = -14;
+        carnage.velocityX = -(6+score/100);
         carnage.velocityY = Math.round(random(5, 8));
         carnageGroup.add(carnage);
     }
@@ -264,7 +266,7 @@ function spawn() {
         electro.addAnimation("boss2", electroAnimation);
         electro.setCollider("circle", 0, 0,25);
         electro.lifetime = 200;
-        electro.velocityX = -14;
+        electro.velocityX = -(6+score/100);
         electro.velocityY = Math.round(random(5, 8));
         electro.scale = 1.5;
         electroGroup.add(electro);
@@ -274,7 +276,7 @@ function spawn() {
     if (rand === 3) {
       lizard = createSprite(1100, 0, 20, 20);
       lizard.addAnimation("boss3", lizardAnimation);
-      lizard.velocityX = -14;
+      lizard.velocityX = -(6+score/100);
       lizard.velocityY = Math.round(random(5, 9));
       lizard.setCollider("circle", 0,0, 25);
       lizard.lifetime = 300;
@@ -285,7 +287,7 @@ function spawn() {
       venom.addAnimation("boss4", venomAnimation);
       venom.setCollider("circle", 0,0, 25);
       venom.lifetime = 300;
-      venom.velocityX = -14;
+      venom.velocityX = -(6+score/100);
       venom.velocityY = Math.round(random(5, 8)); 
       venom.scale = 1.7;
       venomGroup.add(venom);
