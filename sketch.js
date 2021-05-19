@@ -59,7 +59,6 @@ function setup() {
   spiderMan.scale = 2;
   spiderMan.setCollider("circle", 0, 0, 25.5);
   spiderMan.visible = false;
-  spiderMan.debug=true;
   
   invisibleGround = createSprite(300, 550, 1500, 10);
   invisibleGround.visible = false;
